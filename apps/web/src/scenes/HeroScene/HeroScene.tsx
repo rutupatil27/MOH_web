@@ -18,6 +18,8 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
  */
 type Props = {
   progress: RefObject<number>;
+  /** Off once the 3D guitar takes the focal point — two strings would fight. */
+  showString?: boolean;
   className?: string;
 };
 
@@ -35,7 +37,11 @@ type Ring = { t: number; life: number };
 
 const GOLD = { r: 232, g: 187, b: 112 };
 
-export default function HeroScene({ progress, className = "" }: Props) {
+export default function HeroScene({
+  progress,
+  showString = true,
+  className = "",
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotion();
 
@@ -149,37 +155,39 @@ export default function HeroScene({ progress, className = "" }: Props) {
       }
 
       // 3. the string — a standing wave, brightest at its belly
-      const top = h * 0.1;
-      const bottom = h * 0.9;
-      const A = amp * short * 0.028;
-      const strokes: Array<[number, number]> = [
-        [4.5 * dpr, 0.05],
-        [1.8 * dpr, 0.16],
-        [0.7 * dpr, 0.5],
-      ];
-      for (const [lw, alpha] of strokes) {
-        ctx.beginPath();
-        for (let i = 0; i <= 60; i++) {
-          const u = i / 60;
-          const y = top + (bottom - top) * u;
-          const d =
-            A *
-            (Math.sin(Math.PI * u) * Math.cos(time * 7.4) +
-              0.32 * Math.sin(2 * Math.PI * u) * Math.cos(time * 13.1));
-          // the string is a line of light: dim at the ends, alive in the middle
-          const x = fx + d;
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+      if (showString) {
+        const top = h * 0.1;
+        const bottom = h * 0.9;
+        const A = amp * short * 0.028;
+        const strokes: Array<[number, number]> = [
+          [4.5 * dpr, 0.05],
+          [1.8 * dpr, 0.16],
+          [0.7 * dpr, 0.5],
+        ];
+        for (const [lw, alpha] of strokes) {
+          ctx.beginPath();
+          for (let i = 0; i <= 60; i++) {
+            const u = i / 60;
+            const y = top + (bottom - top) * u;
+            const d =
+              A *
+              (Math.sin(Math.PI * u) * Math.cos(time * 7.4) +
+                0.32 * Math.sin(2 * Math.PI * u) * Math.cos(time * 13.1));
+            // a line of light: dim at the ends, alive in the middle
+            const x = fx + d;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          const fade = ctx.createLinearGradient(0, top, 0, bottom);
+          const core = `rgba(255,243,222,${alpha * bloom * exit})`;
+          fade.addColorStop(0, "rgba(255,243,222,0)");
+          fade.addColorStop(0.22, core);
+          fade.addColorStop(0.78, core);
+          fade.addColorStop(1, "rgba(255,243,222,0)");
+          ctx.strokeStyle = fade;
+          ctx.lineWidth = lw;
+          ctx.stroke();
         }
-        const fade = ctx.createLinearGradient(0, top, 0, bottom);
-        const core = `rgba(255,243,222,${alpha * bloom * exit})`;
-        fade.addColorStop(0, "rgba(255,243,222,0)");
-        fade.addColorStop(0.22, core);
-        fade.addColorStop(0.78, core);
-        fade.addColorStop(1, "rgba(255,243,222,0)");
-        ctx.strokeStyle = fade;
-        ctx.lineWidth = lw;
-        ctx.stroke();
       }
 
       // 4. dust — only visible where the light reaches it
@@ -280,7 +288,7 @@ export default function HeroScene({ progress, className = "" }: Props) {
       document.removeEventListener("visibilitychange", onVisibility);
       canvas.removeEventListener("pointerdown", onPointer);
     };
-  }, [progress, reduced]);
+  }, [progress, reduced, showString]);
 
   return (
     <canvas

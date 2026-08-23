@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 
 import HeroScene from "@/scenes/HeroScene/HeroScene";
@@ -9,12 +10,23 @@ import { heroIntro, heroScrollOut } from "@/animations/heroAnimations";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { courses, cta, site } from "@/lib/site";
+import { hasWebGL, isLowPowerDevice } from "@/lib/webgl";
+
+/** Three.js never reaches the first load — it arrives after the page is usable. */
+const Hero3D = dynamic(() => import("@/scenes/HeroScene/Hero3D"), {
+  ssr: false,
+});
 
 export default function HeroSection() {
   const section = useRef<HTMLElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const progress = useScrollProgress(section);
   const reduced = useReducedMotion();
+  const [use3D, setUse3D] = useState(false);
+
+  useEffect(() => {
+    setUse3D(hasWebGL() && !isLowPowerDevice());
+  }, []);
 
   useEffect(() => {
     if (!section.current || !content.current) return;
@@ -47,10 +59,13 @@ export default function HeroSection() {
         }}
       />
 
-      {/* The scene */}
+      {/* Light and dust — always on, and the whole hero when WebGL is absent */}
       <div className="absolute inset-0">
-        <HeroScene progress={progress} />
+        <HeroScene progress={progress} showString={!use3D} />
       </div>
+
+      {/* The guitar — drag it, strum it */}
+      {use3D && <Hero3D progress={progress} />}
 
       {/* Legibility scrim — light on the right, ink on the left */}
       <div
@@ -69,9 +84,11 @@ export default function HeroSection() {
       {/* Copy */}
       <div
         ref={content}
-        className="container-site relative z-10 flex min-h-[100svh] flex-col justify-center pt-[var(--header-h)] pb-32 sm:pb-36"
+        className="container-site pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-center pt-[var(--header-h)] pb-32 sm:pb-36"
       >
-        <div className="max-w-[46rem]">
+        {/* pointer-events are handed back only where there is something to
+            click or select — everywhere else belongs to the guitar */}
+        <div className="pointer-events-auto max-w-[46rem]">
           <p
             data-reveal
             data-hero-eyebrow
@@ -130,7 +147,7 @@ export default function HeroSection() {
         {/* Foot rail: quiet credentials, scroll cue, disciplines */}
         <div
           data-hero-foot
-          className="container-site absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 pb-8 sm:pb-10"
+          className="container-site pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 pb-8 sm:pb-10"
         >
           <p
             data-reveal
@@ -146,7 +163,7 @@ export default function HeroSection() {
           <a
             data-reveal
             href="#our-story"
-            className="group absolute left-1/2 bottom-8 hidden -translate-x-1/2 flex-col items-center gap-3 sm:bottom-10 sm:flex"
+            className="group pointer-events-auto absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 sm:bottom-10 sm:flex"
             aria-label="Scroll to continue"
           >
             <span className="eyebrow text-[0.6rem] transition-colors group-hover:text-ivory">

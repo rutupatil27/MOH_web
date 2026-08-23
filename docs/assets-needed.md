@@ -15,7 +15,20 @@ perfect — including photos already posted to its own Google Business profile,
 Instagram or Facebook. Send the originals (WhatsApp compresses them badly);
 phone photos are fine, we grade them to the site's dark/gold palette.
 
-Drop files into `apps/web/public/img/`.
+**How to add one:** drop the file into `apps/web/public/img/` using the exact
+filename below. Every photo slot on the site checks whether its file exists —
+if it does, the real photo renders; if it doesn't, you see the dark placeholder
+panel that's there now. No code change, no restart of anything but the dev
+server.
+
+Slots that are live right now:
+
+| Filename | What it should be |
+| --- | --- |
+| `transformation-practice.jpg` | a student practising — close on the hands, dim room |
+| `transformation-perform.jpg` | a student performing — lit from the front |
+
+Any image works for testing; portrait crops (3:4 or 4:5) fit the frame best.
 
 | # | Shot | Where it's used | Wanted |
 | --- | --- | --- | --- |

@@ -46,9 +46,11 @@ npm run lint
 - [x] **Phase 0** — foundation: Next.js 15 + TS + Tailwind v4, ESLint, build green
 - [x] **Phase 1** — design system: colour tokens, type scale, buttons, nav, container
 - [x] **Hero (01)** — cinematic hero, minimal header, smooth scroll, reduced-motion path
-- [ ] Phase 2 — the rest of the static site (Hook → Footer)
-- [ ] Phase 3 — scroll system across all sections
-- [ ] Phase 4-7 — 3D scenes and the cinematic finale
+- [x] **Hero 3D** — interactive guitar built from the brand silhouette, lazy-loaded
+- [x] **The Hook (02)** — pinned four-statement scroll
+- [x] **Transformation (03)** — the signature scrubbed sequence
+- [ ] Phase 2 — remaining sections (Courses → Footer)
+- [ ] Phase 4-7 — course 3D scenes and the cinematic finale
 - [ ] Phase 8 — Express + MongoDB API, contact form
 - [ ] Phase 9-12 — SEO, performance, accessibility, cross-browser QA
 
