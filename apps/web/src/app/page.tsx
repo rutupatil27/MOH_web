@@ -2,6 +2,7 @@ import HeroSection from "@/sections/HeroSection";
 import HookSection from "@/sections/HookSection";
 import TransformationSection from "@/sections/TransformationSection";
 import CoursesSection from "@/sections/CoursesSection";
+import JourneySection from "@/sections/JourneySection";
 import Photo from "@/components/ui/Photo";
 
 export default function Home() {
@@ -29,12 +30,14 @@ export default function Home() {
 
       <CoursesSection />
 
+      <JourneySection />
+
       {/*
-        PHASE 2 CONTINUES — Journey, Confidence, About, Credentials,
-        Final CTA, Contact and Footer are next.
+        PHASE 2 CONTINUES — Confidence, About, Credentials, Final CTA,
+        Contact and Footer are next.
       */}
       <section
-        id="journey"
+        id="confidence"
         aria-label="More of the story is coming"
         className="relative flex min-h-[60svh] items-center bg-black"
       >
@@ -43,9 +46,9 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black to-transparent"
         />
         <div className="container-site">
-          <p className="eyebrow mb-8">05 — The Journey</p>
+          <p className="eyebrow mb-8">06 — Confidence</p>
           <p className="font-display max-w-[20ch] text-display-sm text-ivory/85">
-            From the first note to finding your voice.
+            Music gives you permission to be heard.
           </p>
           <p className="mt-10 text-sm text-muted/70">Next phase.</p>
         </div>
