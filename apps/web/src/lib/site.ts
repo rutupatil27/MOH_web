@@ -40,10 +40,38 @@ export const cta = {
 } as const;
 
 export const courses = [
-  { slug: "guitar", name: "Guitar", tagline: "Strings to Success" },
-  { slug: "keyboard", name: "Keyboard", tagline: "Keys to Harmony" },
-  { slug: "drums", name: "Drums", tagline: "Find Your Rhythm" },
-  { slug: "vocals", name: "Vocals", tagline: "Find Your Voice" },
+  {
+    slug: "guitar",
+    name: "Guitar",
+    tagline: "Strings to Success",
+    lines: ["Explore your rhythm.", "Build your confidence.", "Find your sound."],
+  },
+  {
+    slug: "keyboard",
+    name: "Keyboard",
+    tagline: "Keys to Harmony",
+    lines: [
+      "Hear how music is built.",
+      "Train both hands to think.",
+      "Play what you imagine.",
+    ],
+  },
+  {
+    slug: "drums",
+    name: "Drums",
+    tagline: "Find Your Rhythm",
+    lines: ["Keep time, then bend it.", "Build control and stamina.", "Lead the room."],
+  },
+  {
+    slug: "vocals",
+    name: "Vocals",
+    tagline: "Find Your Voice",
+    lines: [
+      "Breathe, support, project.",
+      "Discover the range you have.",
+      "Sing without apologising.",
+    ],
+  },
 ] as const;
 
 /**

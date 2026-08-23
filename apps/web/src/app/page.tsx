@@ -1,6 +1,7 @@
 import HeroSection from "@/sections/HeroSection";
 import HookSection from "@/sections/HookSection";
 import TransformationSection from "@/sections/TransformationSection";
+import CoursesSection from "@/sections/CoursesSection";
 import Photo from "@/components/ui/Photo";
 
 export default function Home() {
@@ -26,12 +27,14 @@ export default function Home() {
         }
       />
 
+      <CoursesSection />
+
       {/*
-        PHASE 2 CONTINUES — Courses, Journey, Confidence, About, Credentials,
+        PHASE 2 CONTINUES — Journey, Confidence, About, Credentials,
         Final CTA, Contact and Footer are next.
       */}
       <section
-        id="courses"
+        id="journey"
         aria-label="More of the story is coming"
         className="relative flex min-h-[60svh] items-center bg-black"
       >
@@ -40,9 +43,9 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black to-transparent"
         />
         <div className="container-site">
-          <p className="eyebrow mb-8">04 — Courses</p>
+          <p className="eyebrow mb-8">05 — The Journey</p>
           <p className="font-display max-w-[20ch] text-display-sm text-ivory/85">
-            Find your instrument. Find your rhythm.
+            From the first note to finding your voice.
           </p>
           <p className="mt-10 text-sm text-muted/70">Next phase.</p>
         </div>
