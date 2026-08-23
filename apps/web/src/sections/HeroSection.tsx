@@ -78,7 +78,7 @@ export default function HeroSection() {
             className="eyebrow flex items-center gap-4"
           >
             <span aria-hidden className="h-px w-10 bg-gold/45" />
-            {site.name} · {site.tagline}
+            {site.tagline} · {site.place.city}
           </p>
 
           <h1

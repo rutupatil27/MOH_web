@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { ButtonLink } from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 import { cta, nav, site } from "@/lib/site";
 
 export default function SiteHeader() {
@@ -47,15 +48,10 @@ export default function SiteHeader() {
         {/* Brand */}
         <Link
           href="/"
-          className="flex items-baseline gap-2.5 leading-none"
+          className="transition-opacity duration-300 hover:opacity-80"
           aria-label={`${site.legalName} — home`}
         >
-          <span aria-hidden className="text-[0.7rem] text-gold">
-            ✦
-          </span>
-          <span className="font-display text-[0.95rem] tracking-[0.26em] text-ivory uppercase sm:text-[1.05rem]">
-            The Music of Heart
-          </span>
+          <Logo />
         </Link>
 
         {/* Desktop nav */}

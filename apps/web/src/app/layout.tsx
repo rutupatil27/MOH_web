@@ -24,31 +24,32 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Music Academy`,
+    default: `${site.name} | Music Academy in ${site.place.city}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.legalName,
   keywords: [
-    "music academy",
-    "guitar classes",
-    "keyboard classes",
-    "drums classes",
-    "vocal training",
-    "music lessons",
+    `music academy in ${site.place.city}`,
+    `music classes in ${site.place.city}`,
+    `guitar classes ${site.place.city}`,
+    `keyboard classes ${site.place.city}`,
+    `drum classes ${site.place.city}`,
+    `singing classes ${site.place.city}`,
+    "ISO certified music academy",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: site.url,
     siteName: site.legalName,
-    title: `${site.name} | Music Academy`,
+    title: `${site.name} | Music Academy in ${site.place.city}`,
     description: site.description,
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | Music Academy`,
+    title: `${site.name} | Music Academy in ${site.place.city}`,
     description: site.description,
   },
   robots: {
@@ -71,7 +72,7 @@ export default function RootLayout({
       <body className="bg-black text-ivory antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100] focus:rounded-sm focus:bg-black-warm focus:px-5 focus:py-3 focus:text-sm focus:text-gold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-6 focus:left-6 focus:z-100 focus:rounded-sm focus:bg-black-warm focus:px-5 focus:py-3 focus:text-sm focus:text-gold"
         >
           Skip to content
         </a>

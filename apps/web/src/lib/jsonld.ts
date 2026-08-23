@@ -14,6 +14,14 @@ export function musicSchoolJsonLd() {
     description: site.description,
     url: site.url,
     slogan: site.idea,
+    // City is confirmed; street address stays out until a human verifies it.
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.place.city,
+      addressRegion: site.place.region,
+      addressCountry: "IN",
+    },
+    areaServed: { "@type": "City", name: site.place.city },
     hasCredential: [site.credentials.iso, site.credentials.affiliation],
     makesOffer: courses.map((c) => ({
       "@type": "Offer",

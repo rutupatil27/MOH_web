@@ -13,11 +13,17 @@ export const site = {
   tagline: "Music Academy",
   idea: "Music is a way of discovering yourself.",
   description:
-    "The Music of Heart is an ISO Certified music academy affiliated with SBSKK, teaching guitar, keyboard, drums and vocals — and helping students find the confidence to be heard.",
+    "The Music of Heart is an ISO Certified music academy in Nashik, affiliated with SBSKK — teaching guitar, keyboard, drums and vocals, and helping students find the confidence to be heard.",
   url: "https://themusicofheart.com", // TODO: confirm production domain with client
   credentials: {
     iso: "ISO Certified",
     affiliation: "Affiliated with SBSKK",
+  },
+  /** Confirmed by the academy. Street-level detail lives in UNVERIFIED below. */
+  place: {
+    city: "Nashik",
+    region: "Maharashtra",
+    country: "India",
   },
 } as const;
 
@@ -41,17 +47,40 @@ export const courses = [
 ] as const;
 
 /**
+ * Found online, NOT yet confirmed by the academy — so it renders nowhere.
+ *
+ * Source: a Justdial listing for "The Music Of Heart — Near Rajkamal Sweets,
+ * Datta Mandir, Nashik" (justdial.com/Nashik/The-Music-Of-Heart-Near-Rajkamal-
+ * Sweets-Datta-Mandir/0253PX253-X253-230128192431-T1Z4_BZDET). The listing
+ * page itself blocks automated reads, so the street line below came from a
+ * search summary rather than a page we could verify. Move it into `site.place`
+ * only once a human confirms it — a wrong address on a local business site is
+ * worse than no address.
+ */
+export const UNVERIFIED = {
+  streetAddress:
+    "Flat No. 313, Rajan Complex, Datta Mandir Road, near Rajkamal Sweets, Deolali Gaon",
+  locality: "Datta Mandir, Deolali Gaon",
+  postalCode: "422101",
+} as const;
+
+/**
  * Awaiting the academy. Do not guess these — they are rendered nowhere
  * until supplied, and several of them (address, phone) unlock the
  * LocalBusiness structured data in lib/jsonld.ts.
  */
 export const PENDING = {
-  address: null,
+  streetAddress: null,
+  postalCode: null,
+  mapsUrl: null,
   phone: null,
+  whatsapp: null,
   email: null,
   socialLinks: null,
+  openingHours: null,
   isoStandardNumber: null,
   sbskkFullName: null,
   foundedYear: null,
+  founderName: null,
   logoFile: null,
 } as const;
