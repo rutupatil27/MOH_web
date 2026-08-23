@@ -68,8 +68,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-black text-ivory antialiased">
+    // suppressHydrationWarning covers ONLY this element's own attributes, not
+    // its children: browser extensions (password managers, colour pickers,
+    // recorders) stamp attributes onto <html>/<body> before React hydrates,
+    // and that is not a mismatch worth reporting. Real mismatches anywhere
+    // inside the tree still surface normally.
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="bg-black text-ivory antialiased" suppressHydrationWarning>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-6 focus:left-6 focus:z-100 focus:rounded-sm focus:bg-black-warm focus:px-5 focus:py-3 focus:text-sm focus:text-gold"
