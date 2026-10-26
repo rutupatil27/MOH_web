@@ -12,7 +12,7 @@ Every raster that ships on the site comes from a file in this folder, processed 
 | `suro-bharati-logo.png` | Suro Bharati Sangeet Kala Kendra card | Official emblem (maroon lotus seal, "गानात् परतरं नहि") supplied by the owner on 2026-10-22, 554×554. Only the white corners were removed. |
 
 | `visit-sketch.png` | Visit Us section | Supplied by the owner on 2026-10-22 (ink sketch of a heritage building with "Let's Make Music Together"). Decorative illustration placed at the owner's request; it is not a drawing of the academy's building. |
-| `founder-photo.png` | Founder section (temporary) | Supplied by the owner on 2026-10-22 "for now": a guitarist seen from behind at sunset, cropped to 4:3. AI-generated mood image, not a photo of Mr. Aryan Tisawar; its alt text does not claim it is. Replace with a real portrait when available. |
+| `founder-photo.png` | Founder section | Real photo of Mr. Aryan Tisawar (smiling by a lake at sunset, green kurta), supplied by the owner on 2026-10-26 as 1455×1081 and cropped to 4:3 (1441×1081). Replaces the temporary AI-generated mood image. |
 
 Rules (from PRODUCT.md):
 - Photos presented as the academy, its classes, students or events must be the academy's own.

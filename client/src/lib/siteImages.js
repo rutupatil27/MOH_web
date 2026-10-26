@@ -141,9 +141,9 @@ export const SITE_IMAGES = {
     ]
   },
   "founder-photo": {
-    "width": 1255,
-    "height": 941,
-    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoYABIAPu1sq08ppiOiMBgIATAdiWIAnTNYk/QHnCT7L+tEKHswWFwLwAD3nFL5BppypPGO2QsGRLD466s3yu5tl9kknyFjxbrLTu5KF5WFTj8veE8xLTodEQNZKK3P3qvtCcKy93i/BFtA0vDVnXYCNwqAAA==",
+    "width": 1441,
+    "height": 1081,
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwBACdASoYABIAPu1ip04ppSMiMBgMATAdiWIAnTLT8xgk0DKubeRsTl3qWPjl3wAA/tNCaqThQxfLC/kWK9cHAgldWFYMJ7Q5bo+3sO0Grdj+baLrsi79ElDZuzXDjDHz52rI8oUPQ0u86hGQAA==",
     "variants": [
       {
         "width": 640,
@@ -154,8 +154,12 @@ export const SITE_IMAGES = {
         "url": "/img/founder-photo-960.webp"
       },
       {
-        "width": 1255,
-        "url": "/img/founder-photo-1255.webp"
+        "width": 1280,
+        "url": "/img/founder-photo-1280.webp"
+      },
+      {
+        "width": 1441,
+        "url": "/img/founder-photo-1441.webp"
       }
     ]
   },

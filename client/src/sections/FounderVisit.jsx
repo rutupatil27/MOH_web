@@ -31,12 +31,19 @@ export function FounderSection({ settings, showLink = true }) {
         <div className="relative lg:col-span-6 lg:col-start-7">
           {withPhoto ? (
             <div className="print-frame">
-              <SiteImage name="founder-photo" alt="A guitarist sitting with his guitar at sunset" sizes="(min-width: 1024px) 40vw, 100vw" className="w-full" aspectRatio="4 / 3" />
+              <SiteImage
+                name="founder-photo"
+                alt={`${settings.founderName}, founder of The Music of Heart, smiling by a lake at sunset`}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="w-full"
+                aspectRatio="4 / 3"
+              />
             </div>
           ) : null}
           <p
             aria-hidden="true"
-            className={`paper-note script w-fit rotate-[3deg] px-8 py-6 leading-[0.95] ${withPhoto ? "absolute -bottom-6 right-0" : "mx-auto text-[clamp(2.6rem,2rem+2vw,4rem)]"}`}
+            // With the photo, the note sits bottom-left over the lake, clear of the founder on the right.
+            className={`paper-note script w-fit leading-[0.95] ${withPhoto ? "absolute -bottom-6 left-0 -rotate-3 px-5 py-4 max-sm:text-[1.7rem] sm:px-8 sm:py-6" : "mx-auto rotate-[3deg] px-8 py-6 text-[clamp(2.6rem,2rem+2vw,4rem)]"}`}
           >
             Music People
             <br />
