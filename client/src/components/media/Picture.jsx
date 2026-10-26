@@ -5,6 +5,7 @@
 export function Picture({ media, alt, sizes = "100vw", priority = false, className = "", imgClassName = "", fit = "cover", aspectRatio, placeholder = true }) {
   if (!media?.variants?.length) return null;
   const variants = [...media.variants].sort((a, b) => a.width - b.width);
+  if (fit === "cover") sizes = coverSizes(sizes, media, aspectRatio);
   const largest = variants[variants.length - 1];
   const fallback = variants.find((v) => v.width >= 960) ?? largest;
 
@@ -33,6 +34,23 @@ export function Picture({ media, alt, sizes = "100vw", priority = false, classNa
       />
     </div>
   );
+}
+
+/**
+ * `sizes` describes the box width, but a photo cropped to fill a narrower box (a wide photo
+ * in a square tile) is drawn wider than the box. Scale each size by that overflow so the
+ * browser picks a file with enough pixels for the cropped height instead of stretching it.
+ */
+function coverSizes(sizes, media, aspectRatio) {
+  const match = /^\s*([\d.]+)\s*\/\s*([\d.]+)\s*$/.exec(aspectRatio ?? "");
+  if (!match || !media.width || !media.height) return sizes;
+  const overflow = media.width / media.height / (Number(match[1]) / Number(match[2]));
+  if (overflow <= 1.05) return sizes;
+  const factor = Math.round(overflow * 100) / 100;
+  return sizes
+    .split(",")
+    .map((entry) => entry.trim().replace(/(\S+)$/, (length) => `calc(${length} * ${factor})`))
+    .join(", ");
 }
 
 export function largestUrl(media) {

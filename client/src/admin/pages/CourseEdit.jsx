@@ -6,6 +6,7 @@ import { LEVELS } from "@moh/shared/constants";
 import { Picture } from "../../components/media/Picture.jsx";
 import { Icon } from "../../components/ui/Icon.jsx";
 import { act, api, load } from "../api.js";
+import { PHOTO_ACCEPT, prepareImage } from "../prepareImage.js";
 import { Field, Notice } from "../components/ui.jsx";
 
 export async function clientLoader({ params }) {
@@ -55,7 +56,7 @@ export async function clientAction({ request, params }) {
   }
   if (intent === "upload-image") {
     const body = new FormData();
-    body.set("image", form.get("image"));
+    body.set("image", await prepareImage(form.get("image")));
     return act(() => api(`/courses/${params.id}/image`, { method: "POST", form: body }));
   }
   if (intent === "remove-image") {
@@ -211,7 +212,7 @@ function CourseImage({ course }) {
               <label htmlFor="course-image" className="field-label">
                 Upload a photo
               </label>
-              <input id="course-image" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" required className="text-small" />
+              <input id="course-image" name="image" type="file" accept={PHOTO_ACCEPT} required className="text-small" />
             </div>
             <button type="submit" className="btn btn-secondary min-h-11" disabled={busy}>
               <Icon name="upload" size={18} />

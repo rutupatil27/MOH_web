@@ -31,8 +31,10 @@ export const links = () => [
 ];
 
 export function Layout({ children }) {
+  // Browser extensions (Scribe, ColorZilla, Grammarly…) add attributes to <html> and <body>
+  // before React loads; suppressHydrationWarning ignores those two elements' own attributes only.
   return (
-    <html lang="en-IN" data-surface="dark">
+    <html lang="en-IN" data-surface="dark" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -41,7 +43,7 @@ export function Layout({ children }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <ScrollRestoration />
         <Scripts />

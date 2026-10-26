@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { enquirySchema, fieldErrors, formatIndianMobile, normalizeIndianMobile, siteSettingsSchema } from "./index.js";
+import {
+  DEFAULT_PHOTO_ALT,
+  enquirySchema,
+  fieldErrors,
+  formatIndianMobile,
+  galleryItemSchema,
+  normalizeIndianMobile,
+  siteSettingsSchema,
+} from "./index.js";
 
 describe("Indian mobile numbers", () => {
   it.each([
@@ -70,5 +78,16 @@ describe("siteSettingsSchema", () => {
   it("requires https links", () => {
     const result = siteSettingsSchema.safeParse({ academyName: "X Academy", instagramUrl: "instagram.com/x" });
     expect(result.success).toBe(false);
+  });
+});
+
+describe("galleryItemSchema", () => {
+  it("uses the default description when alt text is blank or missing", () => {
+    expect(galleryItemSchema.parse({}).altText).toBe(DEFAULT_PHOTO_ALT);
+    expect(galleryItemSchema.parse({ altText: "   " }).altText).toBe(DEFAULT_PHOTO_ALT);
+  });
+
+  it("keeps a description that was given", () => {
+    expect(galleryItemSchema.parse({ altText: " Annual concert " }).altText).toBe("Annual concert");
   });
 });

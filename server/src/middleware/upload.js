@@ -12,7 +12,7 @@ export const singleImage = multer({
   limits: { fileSize: LIMITS.uploadBytes, files: 1, fields: 10 },
   fileFilter(_req, file, cb) {
     if (ACCEPTED.has(file.mimetype)) cb(null, true);
-    else cb(new HttpError(415, "Upload a JPEG, PNG, WebP or HEIC photo."));
+    else cb(new HttpError(415, "Upload a JPEG, PNG or WebP photo."));
   },
 }).single("image");
 

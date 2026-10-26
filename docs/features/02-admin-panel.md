@@ -7,7 +7,7 @@ Useful summaries: total enquiries, new enquiries, course count, gallery count. A
 Create/edit/publish/unpublish/reorder and manage descriptions/media and Beginner/Advanced content.
 
 ## Gallery
-Upload/edit title/alt text/reorder/publish/unpublish/delete.
+Upload (one or many photos at once)/edit title/alt text/reorder/publish/unpublish/delete.
 
 ## Enquiries
 View/filter/details/status. Suggested statuses: New, Contacted, Closed.

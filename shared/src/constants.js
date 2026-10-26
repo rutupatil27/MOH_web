@@ -28,6 +28,15 @@ export const ENQUIRY_STATUS_VALUES = ENQUIRY_STATUSES.map((s) => s.value);
 
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
+/**
+ * Shortest side, in pixels, below which a photo looks soft in a gallery tile on most screens.
+ * Such photos are still accepted; the admin is warned and they never get the large feature tile.
+ */
+export const PHOTO_SHARP_MIN_EDGE = 600;
+
+/** Alt text used when a gallery photo is saved without its own description. */
+export const DEFAULT_PHOTO_ALT = "Photo from The Music of Heart Music Academy, Nashik Road";
+
 export const LIMITS = {
   name: 80,
   message: 1000,

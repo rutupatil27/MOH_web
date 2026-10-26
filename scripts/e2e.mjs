@@ -8,6 +8,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
+import { DEFAULT_PHOTO_ALT } from "@moh/shared/constants";
 import puppeteer from "puppeteer-core";
 import sharp from "sharp";
 
@@ -129,37 +130,43 @@ try {
     await page.screenshot({ path: path.join(outDir, "enquiry-detail.png"), fullPage: true });
   });
 
-  let photoAlt = "E2E sample photo of the practice room";
-  await step("gallery upload requires alt text, then publishes the photo", async () => {
-    const tmp = path.join(os.tmpdir(), `moh-e2e-${Date.now()}.jpg`);
-    await sharp({ create: { width: 1600, height: 1067, channels: 3, background: "#5b4630" } })
-      .composite([{ input: Buffer.from('<svg width="1600" height="1067"><circle cx="800" cy="530" r="300" fill="#e8be83"/></svg>') }])
-      .jpeg()
-      .toFile(tmp);
+  await step("gallery uploads several photos at once (any size) with the standard description", async () => {
+    const stamp = Date.now();
+    const photo = (name, width, height, fill) =>
+      sharp({ create: { width, height, channels: 3, background: "#5b4630" } })
+        .composite([{ input: Buffer.from(`<svg width="${width}" height="${height}"><circle cx="${width / 2}" cy="${height / 2}" r="${Math.min(width, height) / 3}" fill="${fill}"/></svg>`) }])
+        .jpeg({ quality: 95 })
+        .toFile(path.join(os.tmpdir(), `moh-e2e-${stamp}-${name}.jpg`))
+        .then(() => path.join(os.tmpdir(), `moh-e2e-${stamp}-${name}.jpg`));
+    const files = [
+      await photo("wide", 1600, 1067, "#e8be83"),
+      await photo("tiny", 160, 120, "#c9a45c"), // below the old 400 × 300 minimum
+      await photo("huge", 6000, 4000, "#8a6a3a"), // resized in the browser before upload
+    ];
+    const upload = "section[aria-labelledby=upload-title]";
     await page.goto(`${base}/admin/gallery`, { waitUntil: "load" });
-    await page.waitForSelector("input[type=file][name=image]", { timeout: 15000 });
-    const file = await page.$("input[type=file][name=image]");
-    await file.uploadFile(tmp);
-    await page.click("section[aria-labelledby=upload-title] button[type=submit]");
-    await page.waitForFunction(() => document.body.innerText.includes("Alt text is required"), { timeout: 20000 });
-    const file2 = await page.$("input[type=file][name=image]");
-    await file2.uploadFile(tmp);
-    await page.type("section[aria-labelledby=upload-title] input[name=altText]", photoAlt);
-    await page.click("section[aria-labelledby=upload-title] button[type=submit]");
-    await page.waitForFunction(() => document.body.innerText.includes("Photo added."), { timeout: 30000 });
+    await page.waitForSelector(`${upload} input[type=file]`, { timeout: 15000 });
+    await (await page.$(`${upload} input[type=file]`)).uploadFile(...files);
+    await page.waitForFunction((s) => document.querySelectorAll(`${s} ul li`).length === 3, { timeout: 10000 }, upload);
+    await page.click(`${upload} button[type=submit]`);
+    await page.waitForFunction(() => document.body.innerText.includes("3 photos added."), { timeout: 60000 });
     await settle(800);
     await page.screenshot({ path: path.join(outDir, "gallery.png"), fullPage: true });
     const pub = await browser.newPage();
     await pub.goto(`${base}/gallery`, { waitUntil: "load" });
-    const alts = await pub.$$eval("img", (imgs) => imgs.map((i) => i.alt));
-    expect(alts.includes(photoAlt), "photo visible on the public gallery");
+    const alts = await pub.$$eval("main ul img", (imgs) => imgs.map((i) => i.alt));
+    expect(alts.filter((a) => a === DEFAULT_PHOTO_ALT).length === 3, `3 photos with the standard description (found ${alts.length})`);
     await pub.close();
-    await fs.rm(tmp, { force: true });
+    await Promise.all(files.map((f) => fs.rm(f, { force: true })));
   });
 
-  await step("gallery photo can be deleted", async () => {
-    page.once("dialog", (d) => d.accept());
-    await page.click("ol li button.text-error");
+  await step("gallery photos can be deleted", async () => {
+    page.on("dialog", (d) => d.accept());
+    while (await page.$("ol li button.text-error")) {
+      const count = await page.$$eval("ol li", (l) => l.length);
+      await page.click("ol li button.text-error");
+      await page.waitForFunction((n) => document.querySelectorAll("ol li").length < n, { timeout: 20000 }, count);
+    }
     await page.waitForFunction(() => document.body.innerText.includes("No photos yet"), { timeout: 20000 });
   });
 

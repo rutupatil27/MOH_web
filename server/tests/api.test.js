@@ -8,6 +8,8 @@ import sharp from "sharp";
 import request from "supertest";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
+import { DEFAULT_PHOTO_ALT } from "@moh/shared";
+
 let app;
 let mongo;
 const ORIGIN = "http://moh.test";
@@ -169,11 +171,13 @@ describe("admin API", () => {
     const png = await sharp({ create: { width: 1200, height: 800, channels: 3, background: "#7a5a2a" } })
       .png()
       .toBuffer();
-    const missingAlt = await agent
+    const noAlt = await agent
       .post("/api/admin/gallery")
       .set("Origin", ORIGIN)
       .attach("image", png, { filename: "class.png", contentType: "image/png" });
-    expect(missingAlt.status).toBe(422);
+    expect(noAlt.status).toBe(201);
+    expect(noAlt.body.item.altText).toBe(DEFAULT_PHOTO_ALT);
+    await agent.delete(`/api/admin/gallery/${noAlt.body.item.id}`).set("Origin", ORIGIN);
 
     const created = await agent
       .post("/api/admin/gallery")
@@ -195,6 +199,21 @@ describe("admin API", () => {
     expect((await request(app).get("/api/gallery")).body.items).toHaveLength(0);
 
     expect((await agent.delete(`/api/admin/gallery/${id}`).set("Origin", ORIGIN)).status).toBe(204);
+  });
+
+  it("accepts small photos without enlarging them", async () => {
+    const agent = await signIn();
+    const tiny = await sharp({ create: { width: 120, height: 90, channels: 3, background: "#2a2a2a" } })
+      .jpeg()
+      .toBuffer();
+    const res = await agent
+      .post("/api/admin/gallery")
+      .set("Origin", ORIGIN)
+      .field("altText", "A small photo from a class")
+      .attach("image", tiny, { filename: "small.jpg", contentType: "image/jpeg" });
+    expect(res.status).toBe(201);
+    expect(res.body.item.image.variants.map((v) => v.width)).toEqual([120]);
+    await agent.delete(`/api/admin/gallery/${res.body.item.id}`).set("Origin", ORIGIN);
   });
 
   it("rejects non-image uploads", async () => {

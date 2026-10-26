@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import {
   CONTACT_METHOD_VALUES,
+  DEFAULT_PHOTO_ALT,
   ENQUIRY_STATUS_VALUES,
   LEVEL_VALUES,
   LIMITS,
@@ -95,7 +96,10 @@ export const courseSchema = z.object({
 
 export const galleryItemSchema = z.object({
   title: text(120, "Title").default(""),
-  altText: requiredText(200, "Alt text", 3),
+  // Optional: a blank description falls back to the academy-wide default.
+  altText: text(200, "Alt text")
+    .optional()
+    .transform((v) => v || DEFAULT_PHOTO_ALT),
   category: text(40, "Category").default(""),
   published: boolish.default(true),
   sortOrder: z.coerce.number().int().min(0).max(9999).default(0),
