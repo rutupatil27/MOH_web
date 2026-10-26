@@ -20,15 +20,6 @@
     }
   }
 
-  /* The hero collage is shown whole; only its empty black border is feathered into the page. */
-  .hero-photo {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
-      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
-      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
-    mask-composite: intersect;
-  }
 
   /* A sketch on its own paper, feathered into the section's ivory so no box edge shows. */
   .paper-blend {

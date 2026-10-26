@@ -15,8 +15,21 @@ export function HomeHero() {
   const heroAlt = hasSiteImage("hero-instruments") ? "Guitar, keyboard, snare drum and microphone" : "Acoustic guitar";
   return (
     <section data-surface="dark" className="relative isolate overflow-hidden" aria-labelledby="hero-title">
-      <div className="container-site grid min-h-[calc(100svh-var(--header-h))] content-center items-center gap-x-10 gap-y-10 py-14 lg:grid-cols-12 lg:py-16">
-        <div className="lg:col-[1/span_6] lg:row-[1/span_2]">
+      {/* Full-height image on the right, feathered into the black behind the copy — the same treatment as the About hero. */}
+      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[62%]">
+        <SiteImage
+          name={HERO_IMAGE}
+          alt={heroAlt}
+          priority
+          sizes="(min-width: 1024px) 62vw, 100vw"
+          className="hero-media h-full w-full"
+          imgClassName="object-[50%_50%]"
+          aspectRatio="auto"
+        />
+        <div className="absolute inset-0 bg-black/60 lg:hidden" />
+      </div>
+      <div className="container-site flex min-h-[calc(100svh-var(--header-h))] flex-col justify-center gap-10 py-14 lg:py-16">
+        <div className="max-w-xl">
           <span className="kicker text-accent">Music classes in Nashik</span>
           <h1 id="hero-title" className="mt-5 font-display text-[clamp(2.6rem,1rem+4.4vw,5.4rem)] leading-[0.98] uppercase">
             <span className="block sm:whitespace-nowrap">Let music</span>
@@ -45,19 +58,7 @@ export function HomeHero() {
           </div>
         </div>
 
-        {/* The whole image, uncropped, to the right of the copy. */}
-        <div className="lg:col-[7/span_6] lg:row-[1/span_3]">
-          <SiteImage
-            name={HERO_IMAGE}
-            alt={heroAlt}
-            priority
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            fit="contain"
-            className="hero-photo mx-auto max-h-[calc(100svh-var(--header-h)-6rem)] w-full"
-          />
-        </div>
-
-        <dl className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 lg:col-[1/span_6] lg:row-start-3">
+        <dl className="grid max-w-xl grid-cols-2 gap-y-6 sm:grid-cols-4">
           {STATS.map((s, i) => (
             <div key={s.value} className={`pr-4 ${i ? "sm:border-l sm:border-line sm:pl-5" : ""}`}>
               <dt className="sr-only">{s.label}</dt>
