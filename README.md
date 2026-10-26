@@ -67,13 +67,13 @@ Until a file exists, its slot shows a quiet dark panel, so the layout holds with
 
 ## Deploying
 
-One Node process serves everything. **Free setup (Render + MongoDB Atlas + Cloudflare R2):** [render.yaml](render.yaml) is a ready Render Blueprint; the step-by-step is in [docs/development/05-environment-and-deployment.md](docs/development/05-environment-and-deployment.md).
+One Node process serves everything. **Free setup (Render + MongoDB Atlas + Cloudinary):** [render.yaml](render.yaml) is a ready Render Blueprint; the step-by-step is in [docs/development/05-environment-and-deployment.md](docs/development/05-environment-and-deployment.md).
 
 A typical setup on any host:
 
 1. **Database:** a MongoDB Atlas cluster. Put its connection string in `MONGODB_URI`.
 2. **App:** any Node host (Render, Railway, a VPS). Build with `npm install && npm run build`, start with `npm start`. Set the variables from `.env.example`, including `NODE_ENV=production`, a long random `JWT_SECRET`, `SITE_URL` and `TRUST_PROXY=1`.
-3. **Photos:** on hosts that wipe the disk on redeploy, set `STORAGE_DRIVER=s3` with an S3-compatible bucket (e.g. Cloudflare R2) and its public URL in `MEDIA_BASE_URL`.
+3. **Photos:** on hosts that wipe the disk on redeploy, set `STORAGE_DRIVER=cloudinary` with `CLOUDINARY_URL`, or `STORAGE_DRIVER=s3` with an S3-compatible bucket (e.g. Cloudflare R2) and its public URL in `MEDIA_BASE_URL`.
 4. **Admin:** run `npm run create-admin -- <email> "<password>"` once against the production database.
 5. **HTTPS** on the domain, then submit `https://<domain>/sitemap.xml` in Google Search Console.
 

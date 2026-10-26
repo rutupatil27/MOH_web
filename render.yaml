@@ -32,19 +32,9 @@ services:
       # MongoDB Atlas connection string
       - key: MONGODB_URI
         sync: false
-      # Photos go to Cloudflare R2: Render's free disk is wiped on every deploy.
+      # Photos go to Cloudinary: Render's free disk is wiped on every deploy.
       - key: STORAGE_DRIVER
-        value: s3
-      - key: S3_REGION
-        value: auto
-      - key: S3_BUCKET
-        sync: false
-      - key: S3_ENDPOINT
-        sync: false
-      - key: S3_ACCESS_KEY_ID
-        sync: false
-      - key: S3_SECRET_ACCESS_KEY
-        sync: false
-      # The bucket's public URL, e.g. https://pub-xxxx.r2.dev
-      - key: MEDIA_BASE_URL
+        value: cloudinary
+      # cloudinary://<api_key>:<api_secret>@<cloud_name>
+      - key: CLOUDINARY_URL
         sync: false
