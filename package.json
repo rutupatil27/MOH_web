@@ -1,0 +1,31 @@
+{
+  "name": "the-music-of-heart",
+  "private": true,
+  "type": "module",
+  "description": "The Music of Heart Music Academy — official MERN website",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @moh/server",
+    "build": "npm run build -w @moh/client",
+    "start": "npm run start -w @moh/server",
+    "test": "npm test -w @moh/shared && npm test -w @moh/server",
+    "seed": "npm run seed -w @moh/server",
+    "create-admin": "npm run create-admin -w @moh/server",
+    "brand": "node scripts/build-brand.mjs",
+    "images": "node scripts/build-images.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "opentype.js": "^2.0.0",
+    "puppeteer-core": "^25.15.0",
+    "wawoff2": "^2.0.1"
+  }
+}

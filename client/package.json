@@ -1,0 +1,28 @@
+{
+  "name": "@moh/client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "typegen": "react-router typegen"
+  },
+  "dependencies": {
+    "@fontsource-variable/jost": "^5.3.0",
+    "@fontsource/abril-fatface": "^5.3.0",
+    "@fontsource/mrs-saint-delafield": "^5.3.0",
+    "@moh/server": "1.0.0",
+    "@moh/shared": "1.0.0",
+    "@react-router/node": "^8.5.0",
+    "isbot": "^5.2.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^8.5.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

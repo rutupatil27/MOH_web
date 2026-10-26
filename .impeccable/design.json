@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T12:02:51.307Z",
+  "title": "Design System: The Music of Heart",
+  "extensions": {
+    "colorMeta": {
+      "stage-black": {
+        "role": "neutral",
+        "displayName": "Stage Black",
+        "canonical": "#0b0a08",
+        "cssVar": "--color-black",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262522",
+          "#43423f",
+          "#62615e",
+          "#83827f",
+          "#a6a5a2",
+          "#cac9c6",
+          "#f0eeeb"
+        ]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "canonical": "#171411",
+        "cssVar": "--color-charcoal",
+        "tonalRamp": [
+          "#0d0b08",
+          "#282421",
+          "#45413e",
+          "#64605d",
+          "#85817e",
+          "#a8a4a0",
+          "#cdc8c4",
+          "#f2eee9"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#2a2520",
+        "cssVar": "--color-graphite",
+        "tonalRamp": [
+          "#0f0a06",
+          "#29241f",
+          "#46413b",
+          "#66605a",
+          "#87817b",
+          "#aaa49d",
+          "#cec8c1",
+          "#f4ede6"
+        ]
+      },
+      "programme-ivory": {
+        "role": "neutral",
+        "displayName": "Programme Ivory",
+        "canonical": "#f3ede2",
+        "cssVar": "--color-ivory",
+        "tonalRamp": [
+          "#0e0b04",
+          "#29241c",
+          "#464139",
+          "#666157",
+          "#878278",
+          "#aaa49a",
+          "#cec8be",
+          "#f4eee3"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#faf7f1",
+        "cssVar": "--color-paper",
+        "tonalRamp": [
+          "#0d0b07",
+          "#272520",
+          "#44423d",
+          "#63615c",
+          "#85827d",
+          "#a7a59f",
+          "#ccc9c3",
+          "#f1eee8"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "cssVar": "--color-white",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "warm-white": {
+        "role": "neutral",
+        "displayName": "Warm White",
+        "canonical": "#f7f2ea",
+        "cssVar": "--color-warm-white",
+        "tonalRamp": [
+          "#0e0b06",
+          "#28241f",
+          "#45413b",
+          "#65615a",
+          "#86827a",
+          "#a9a49d",
+          "#cdc8c1",
+          "#f3eee6"
+        ]
+      },
+      "logo-gold": {
+        "role": "primary",
+        "displayName": "Logo Gold",
+        "canonical": "#e8be83",
+        "cssVar": "--color-gold",
+        "tonalRamp": [
+          "#1f0100",
+          "#3d1b00",
+          "#5d3900",
+          "#7f591c",
+          "#a27a40",
+          "#c69d63",
+          "#ecc186",
+          "#ffe7ab"
+        ]
+      },
+      "gold-soft": {
+        "role": "primary",
+        "displayName": "Gold Soft",
+        "canonical": "#f2d7ae",
+        "cssVar": "--color-gold-soft",
+        "tonalRamp": [
+          "#180600",
+          "#352000",
+          "#543e18",
+          "#755d38",
+          "#977e58",
+          "#bba179",
+          "#e0c59c",
+          "#ffeac1"
+        ]
+      },
+      "bronze": {
+        "role": "primary",
+        "displayName": "Bronze",
+        "canonical": "#8a5a1f",
+        "cssVar": "--color-bronze",
+        "tonalRamp": [
+          "#220000",
+          "#421700",
+          "#633500",
+          "#855519",
+          "#a9773e",
+          "#cd9961",
+          "#f3bd84",
+          "#ffe3a8"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1a1612",
+        "cssVar": "--color-ink",
+        "tonalRamp": [
+          "#0e0a07",
+          "#282420",
+          "#46413c",
+          "#65605b",
+          "#87817c",
+          "#a9a49e",
+          "#cec8c2",
+          "#f3ede7"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#a39a8d",
+        "cssVar": "--color-stone",
+        "tonalRamp": [
+          "#100a03",
+          "#2b2419",
+          "#484135",
+          "#686054",
+          "#8a8174",
+          "#ada496",
+          "#d1c8ba",
+          "#f7eddf"
+        ]
+      },
+      "umber": {
+        "role": "neutral",
+        "displayName": "Umber",
+        "canonical": "#665c51",
+        "cssVar": "--color-umber",
+        "tonalRamp": [
+          "#110903",
+          "#2c231a",
+          "#4a4036",
+          "#695f54",
+          "#8b8075",
+          "#aea397",
+          "#d3c7bb",
+          "#f8ecdf"
+        ]
+      },
+      "error-on-dark": {
+        "role": "error",
+        "displayName": "Error on Dark",
+        "canonical": "#f2a28f",
+        "cssVar": "--color-error-on-dark",
+        "tonalRamp": [
+          "#280000",
+          "#4a0700",
+          "#6d2a1b",
+          "#914a3a",
+          "#b66b5a",
+          "#dc8e7b",
+          "#ffb29e",
+          "#ffd7c3"
+        ]
+      },
+      "error-on-light": {
+        "role": "error",
+        "displayName": "Error on Light",
+        "canonical": "#a3321f",
+        "cssVar": "--color-error-on-light",
+        "tonalRamp": [
+          "#2d0000",
+          "#510000",
+          "#752112",
+          "#994333",
+          "#bf6553",
+          "#e68775",
+          "#ffab98",
+          "#ffd1bc"
+        ]
+      },
+      "success-on-dark": {
+        "role": "success",
+        "displayName": "Success on Dark",
+        "canonical": "#a9d6ad",
+        "cssVar": "--color-success-on-dark",
+        "tonalRamp": [
+          "#001200",
+          "#032e0d",
+          "#244c2a",
+          "#446d48",
+          "#648f69",
+          "#86b28b",
+          "#aad7ae",
+          "#cffdd2"
+        ]
+      },
+      "success-on-light": {
+        "role": "success",
+        "displayName": "Success on Light",
+        "canonical": "#2f6b3a",
+        "cssVar": "--color-success-on-light",
+        "tonalRamp": [
+          "#001400",
+          "#003101",
+          "#0f5020",
+          "#34703f",
+          "#56935f",
+          "#79b681",
+          "#9ddba4",
+          "#c1ffc9"
+        ]
+      }
+    },
+    "semanticSurfaces": {
+      "dark": {
+        "bg": "stage-black",
+        "fg": "warm-white",
+        "muted": "stone",
+        "accent": "logo-gold",
+        "line": "rgb(247 242 234 / 0.14)",
+        "lineStrong": "rgb(247 242 234 / 0.32)",
+        "raised": "charcoal",
+        "btn": "logo-gold",
+        "btnHover": "gold-soft",
+        "btnFg": "stage-black",
+        "error": "error-on-dark",
+        "success": "success-on-dark"
+      },
+      "light": {
+        "bg": "programme-ivory",
+        "fg": "ink",
+        "muted": "umber",
+        "accent": "bronze",
+        "line": "rgb(26 22 18 / 0.14)",
+        "lineStrong": "rgb(26 22 18 / 0.34)",
+        "raised": "paper",
+        "btn": "logo-gold",
+        "btnHover": "gold-soft",
+        "btnFg": "ink",
+        "error": "error-on-light",
+        "success": "success-on-light"
+      },
+      "paper": {
+        "bg": "paper",
+        "fg": "ink",
+        "muted": "umber",
+        "accent": "bronze",
+        "line": "rgb(26 22 18 / 0.12)",
+        "lineStrong": "rgb(26 22 18 / 0.3)",
+        "raised": "paper-white",
+        "btn": "ink",
+        "btnHover": "color-mix(in srgb, var(--color-ink) 80%, var(--color-umber))",
+        "btnFg": "paper",
+        "error": "error-on-light",
+        "success": "success-on-light"
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Homepage headline only; Anton uppercase."
+      },
+      "band": {
+        "displayName": "Band",
+        "purpose": "Learn / Create / Perform / Grow words; outlined stone, one filled gold."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Inner page titles."
+      },
+      "headline-1": {
+        "displayName": "Headline 1",
+        "purpose": "Primary section headings."
+      },
+      "headline-2": {
+        "displayName": "Headline 2",
+        "purpose": "Section and panel headings; mobile menu links."
+      },
+      "headline-3": {
+        "displayName": "Headline 3",
+        "purpose": "Sub-section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Course names on cards, the paper note, admin sub-headings."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "Two-to-four-word handwritten accents, usually over photos with the caption halo."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Intro paragraph under a page title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Stat labels, captions, breadcrumbs, field labels and errors."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tracked uppercase value lists and tags."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Admin hints and status badges."
+      }
+    },
+    "shadows": [
+      {
+        "name": "print-lift",
+        "value": "0 24px 48px -28px color-mix(in oklab, var(--color-ink) 55%, transparent)",
+        "purpose": "The tilted photo print on ivory."
+      },
+      {
+        "name": "note-lift",
+        "value": "0 16px 32px -20px color-mix(in oklab, var(--color-ink) 50%, transparent)",
+        "purpose": "The paper note overlapping the print."
+      },
+      {
+        "name": "caption-halo",
+        "value": "0 1px 2px color-mix(in oklab, var(--color-black) 70%, transparent), 0 2px 18px color-mix(in oklab, var(--color-black) 55%, transparent)",
+        "purpose": "text-shadow for script words over photographs."
+      },
+      {
+        "name": "field-focus-ring",
+        "value": "0 0 0 1px var(--surface-accent)",
+        "purpose": "Field focus, paired with an accent border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Image scale on card hover, arrow nudges."
+      },
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Colour and border transitions."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Symmetric transitions."
+      },
+      {
+        "name": "dur-fast",
+        "value": "150ms",
+        "purpose": "Field border and focus."
+      },
+      {
+        "name": "dur-base",
+        "value": "260ms",
+        "purpose": "Button and nav colour, arrow nudge."
+      },
+      {
+        "name": "dur-slow",
+        "value": "480ms",
+        "purpose": "Slower settles."
+      },
+      {
+        "name": "dur-stage",
+        "value": "900ms",
+        "purpose": "Arch card image scale to 1.04."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "prefers-reduced-motion collapses every animation and transition."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "xl",
+        "value": "80rem"
+      }
+    ],
+    "containers": [
+      {
+        "name": "site",
+        "value": "88rem"
+      },
+      {
+        "name": "read",
+        "value": "40rem"
+      },
+      {
+        "name": "narrow",
+        "value": "30rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one call to action: a gold pill with an optional sliding arrow. Colour comes from the surface.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><span>Enquire Now</span><span class=\"ds-btn-arrow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:.65em;min-height:3.25rem;padding:.8rem 1.5rem;border:1px solid transparent;border-radius:9999px;background:var(--color-gold, #e8be83);color:var(--color-black, #0b0a08);font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:1rem;font-weight:500;letter-spacing:.02em;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 260ms cubic-bezier(.25,1,.5,1)}.ds-btn:hover{background:var(--color-gold-soft, #f2d7ae)}.ds-btn:focus-visible{outline:2px solid var(--color-gold, #e8be83);outline-offset:3px}.ds-btn-arrow{display:inline-flex;transition:transform 260ms cubic-bezier(.16,1,.3,1)}.ds-btn:hover .ds-btn-arrow{transform:translateX(3px)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined pill for the second action; outline and text turn accent on hover.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Explore Courses</a>",
+      "css": ".ds-btn2{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:.8rem 1.5rem;border:1px solid rgb(247 242 234 / .32);border-radius:9999px;background:transparent;color:var(--color-warm-white, #f7f2ea);font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:1rem;font-weight:500;letter-spacing:.02em;text-decoration:none;transition:color 260ms cubic-bezier(.25,1,.5,1),border-color 260ms cubic-bezier(.25,1,.5,1)}.ds-btn2:hover{border-color:var(--color-gold, #e8be83);color:var(--color-gold, #e8be83)}.ds-btn2:focus-visible{outline:2px solid var(--color-gold, #e8be83);outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Near-square field with a hairline border; focus turns the border accent with a 1px ring.",
+      "html": "<div class=\"ds-fieldset\"><label class=\"ds-field-label\" for=\"ds-name\">Your name</label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Full name\"></div>",
+      "css": ".ds-fieldset{padding:1.5rem;background:var(--color-black, #0b0a08)}.ds-field-label{display:block;margin-bottom:.45rem;font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:.9375rem;font-weight:500;color:var(--color-warm-white, #f7f2ea)}.ds-field{display:block;width:100%;min-height:3.25rem;padding:.75rem .95rem;border:1px solid rgb(247 242 234 / .32);border-radius:2px;background:#141210;color:var(--color-warm-white, #f7f2ea);font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:1.0625rem;transition:border-color 150ms cubic-bezier(.25,1,.5,1),box-shadow 150ms cubic-bezier(.25,1,.5,1)}.ds-field::placeholder{color:var(--color-stone, #a39a8d)}.ds-field:hover{border-color:rgb(247 242 234 / .55)}.ds-field:focus-visible{outline:none;border-color:var(--color-gold, #e8be83);box-shadow:0 0 0 1px var(--color-gold, #e8be83)}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Muted links that turn accent on hover; the active page gets foreground text and a 1px gold underline.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"is-active\">Home</a><a href=\"#\">About</a><a href=\"#\">Courses</a><a href=\"#\">Gallery</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;gap:2.25rem;padding:1.5rem;background:var(--color-black, #0b0a08);font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif}.ds-nav a{position:relative;padding:.5rem 0;font-size:.975rem;letter-spacing:.02em;color:var(--color-stone, #a39a8d);text-decoration:none;transition:color 260ms}.ds-nav a:hover{color:var(--color-gold, #e8be83)}.ds-nav a.is-active{color:var(--color-warm-white, #f7f2ea)}.ds-nav a.is-active::after{content:\"\";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--color-gold, #e8be83)}.ds-nav a:focus-visible{outline:2px solid var(--color-gold, #e8be83);outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Arch Card",
+      "kind": "card",
+      "refersTo": "arch-card",
+      "description": "Signature course card: arch-topped photo on charcoal with a black scrim, title and gold round arrow; the image scales on hover.",
+      "html": "<a class=\"ds-arch\" href=\"#\"><span class=\"ds-arch-img\"></span><span class=\"ds-arch-body\"><span class=\"ds-arch-title\">Guitar</span><span class=\"ds-arch-sub\">Beginner to Advanced</span><span class=\"ds-arch-arrow\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></span></span></a>",
+      "css": ".ds-arch{position:relative;display:block;width:240px;aspect-ratio:3/4;overflow:hidden;isolation:isolate;border-radius:50% 50% 1.5rem 1.5rem / 30% 30% 1.5rem 1.5rem;background:var(--color-charcoal, #171411);color:var(--color-warm-white, #f7f2ea);text-decoration:none}.ds-arch-img{position:absolute;inset:0;background:var(--color-charcoal, #171411);transition:transform 900ms cubic-bezier(.16,1,.3,1)}.ds-arch::after{content:\"\";position:absolute;inset:0;background:linear-gradient(to top,rgb(11 10 8 / .88),transparent 55%);pointer-events:none}.ds-arch-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:1.5rem}.ds-arch-title{display:block;font-family:\"Abril Fatface\",\"Bodoni 72\",Didot,serif;font-size:1.3rem;line-height:1.25}.ds-arch-sub{display:block;margin-top:.25rem;font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:.9375rem;color:var(--color-stone, #a39a8d)}.ds-arch-arrow{display:grid;place-items:center;width:2.25rem;height:2.25rem;margin-top:1rem;border-radius:9999px;background:var(--color-gold, #e8be83);color:var(--color-black, #0b0a08);transition:transform 260ms cubic-bezier(.16,1,.3,1),background-color 260ms}.ds-arch:hover .ds-arch-img,.ds-arch:focus-visible .ds-arch-img{transform:scale(1.04)}.ds-arch:hover .ds-arch-arrow,.ds-arch:focus-visible .ds-arch-arrow{transform:translateX(3px);background:var(--color-gold-soft, #f2d7ae)}.ds-arch:focus-visible{outline:2px solid var(--color-gold, #e8be83);outline-offset:3px}"
+    },
+    {
+      "name": "Icon Ring",
+      "kind": "custom",
+      "refersTo": "icon-ring",
+      "description": "A 24px line icon (1.6 stroke) inside a 3.5rem gold-outlined circle, label centred beneath.",
+      "html": "<div class=\"ds-ring-item\"><span class=\"ds-ring\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><rect x=\"9\" y=\"3.5\" width=\"6\" height=\"10.5\" rx=\"3\"/><path d=\"M6 11.5a6 6 0 0 0 12 0M12 17.5v3M8.5 20.5h7\"/></svg></span><span class=\"ds-ring-label\">Performance Training</span></div>",
+      "css": ".ds-ring-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.5rem;background:var(--color-black, #0b0a08);color:var(--color-warm-white, #f7f2ea)}.ds-ring{display:grid;place-items:center;width:3.5rem;height:3.5rem;border:1px solid var(--color-gold, #e8be83);border-radius:9999px;color:var(--color-gold, #e8be83)}.ds-ring-label{margin-top:1rem;max-width:16ch;font-family:\"Jost Variable\",\"Jost\",system-ui,sans-serif;font-size:.9375rem;font-weight:500}"
+    },
+    {
+      "name": "Journey Band Words",
+      "kind": "custom",
+      "refersTo": "band",
+      "description": "Anton words outlined in stone with one word filled gold.",
+      "html": "<div class=\"ds-band\"><span>Learn</span><span>Create</span><span class=\"is-lit\">Perform</span><span>Grow</span></div>",
+      "css": ".ds-band{padding:1.5rem;background:var(--color-black, #0b0a08)}.ds-band span{display:block;font-family:Anton,Oswald,\"Arial Narrow\",sans-serif;font-size:4rem;line-height:.92;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px var(--color-stone, #a39a8d)}.ds-band span.is-lit{color:var(--color-gold, #e8be83);-webkit-text-stroke:0}"
+    },
+    {
+      "name": "Print and Paper Note",
+      "kind": "custom",
+      "refersTo": "print-frame",
+      "description": "A tilted paper print with an overlapping paper note: the only shadowed objects, on ivory.",
+      "html": "<div class=\"ds-print-wrap\"><div class=\"ds-print\"><div class=\"ds-print-img\"></div></div><p class=\"ds-note\">Music is a journey, not a race</p></div>",
+      "css": ".ds-print-wrap{position:relative;padding:2rem 2rem 3.5rem;background:var(--color-ivory, #f3ede2)}.ds-print{padding:.75rem;background:var(--color-paper, #faf7f1);box-shadow:0 24px 48px -28px rgb(26 22 18 / .55);transform:rotate(-2.5deg)}.ds-print-img{aspect-ratio:4/3;background:var(--color-charcoal, #171411)}.ds-note{position:absolute;left:1rem;bottom:1rem;max-width:13rem;margin:0;padding:1rem 1.25rem;background:var(--color-paper, #faf7f1);box-shadow:0 16px 32px -20px rgb(26 22 18 / .5);transform:rotate(-4deg);font-family:\"Abril Fatface\",\"Bodoni 72\",Didot,serif;font-size:1.3rem;line-height:1.25;text-transform:uppercase;color:var(--color-ink, #1a1612)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Academy Poster",
+    "overview": "A dark, cinematic academy site in the owner's own reference layout. Stage black and programme ivory alternate section by section, and logo gold is the one accent. Type works like a concert poster: a heavy condensed shout for the hero and the Learn / Create / Perform / Grow band, the logo's own fat Didone for section headings, and a quiet geometric sans for everything people actually read. One handwritten script adds a personal note in a few words, never more.\n\nPhotography carries the warmth; the surfaces stay calm. The hero photograph bleeds off the right edge and fades into black on its left and bottom. Course photographs sit inside arch-topped cards. The About photo is pinned like a print, slightly tilted, with a paper note beside it. Flat gold line work (icons in rings, a waveform, a squiggle, a music staff, a curled arrow) is the only drawing. There is no 3D and no drawn instrument art: the owner judged 3D unrealistic, and the site uses real photography and flat graphics only.\n\nDensity is generous. Sections breathe on a 5 to 10rem rhythm, copy is held to short measures, and calls to action are always gold pills. Motion is restrained: a slow image scale on card hover, arrow nudges, and snap-scrolling of the course cards on phones. Every page reads correctly with motion reduced and without JavaScript.",
+    "keyCharacteristics": [
+      "Two public surfaces, black and ivory, alternating by section; a brighter paper surface for admin screens.",
+      "Logo gold as the single accent, swapped for bronze wherever it would carry text on ivory.",
+      "Three typefaces with fixed jobs (Anton, Abril Fatface, Jost) plus one script for short accents.",
+      "Pill actions, arch-topped photo cards, and 1px hairlines.",
+      "Flat by default; only paper objects cast shadows.",
+      "Flat gold line art; no 3D, no illustrated instruments."
+    ],
+    "rules": [
+      {
+        "name": "The Logo Palette Rule",
+        "body": "Every colour is declared once in `client/src/styles/tokens.css`, and Tailwind's default palette is removed. If a colour is not in that file, it does not exist. Social icons are drawn in gold, never in platform brand colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Surface Decides Rule",
+        "body": "Components never choose their own colours. A section declares `data-surface` (dark, light or paper) and the semantic roles (bg, fg, muted, accent, line, raised, btn) resolve from it. The same button is gold with black text on black, gold with ink text on ivory, and ink with paper text in admin.",
+        "section": "colors"
+      },
+      {
+        "name": "The Bronze-on-Ivory Rule",
+        "body": "Gold never carries text on ivory or paper (1.49:1). On light surfaces the accent role is bronze. Gold may still fill a button there, because the ink label carries the meaning.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Anton belongs to the hero and the band only; section headings are Abril Fatface; anything a visitor reads for information is Jost. Don't promote Anton to section headings or set paragraphs in Abril.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single-Weight Rule",
+        "body": "Abril Fatface, Anton and Mrs Saint Delafield each ship one weight (400). Never set them bold; the browser would fake it. Use size, case or colour for emphasis.",
+        "section": "typography"
+      },
+      {
+        "name": "The Short Script Rule",
+        "body": "The script carries a few words of feeling, never information. Laid over a photograph it always carries the photo-caption shadow so it stays readable whatever the image does underneath.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only Paper Casts Rule",
+        "body": "A shadow means a physical piece of paper. Interactive elements and dark-surface panels stay flat; hover is shown by colour, image scale or an arrow nudge, never by lift.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set colour through `data-surface` and the semantic roles; let the surface choose gold or bronze.",
+      "Do make every call to action a pill: gold primary, outlined secondary, at least 3.25rem tall.",
+      "Do keep Anton for the hero and the journey band, Abril Fatface for headings and Jost for reading text.",
+      "Do fade photographs into black with gradient masks and scrims rather than framing them on dark surfaces.",
+      "Do use the authored 1.6-stroke line icons and the gold strokes (waveform, squiggle, staff, curled arrow) as the only drawn graphics.",
+      "Do show hover with colour, a 1.04 image scale or a 3px arrow nudge, and make every state work with motion reduced."
+    ],
+    "donts": [
+      "Don't use 3D scenes, models or drawn instrument illustrations; imagery is real photography and flat line graphics only.",
+      "Don't put gold text on ivory or paper; use bronze.",
+      "Don't add any colour outside `tokens.css`, including platform brand colours on social icons.",
+      "Don't give buttons, cards or dark panels a shadow; only the paper print and note cast one.",
+      "Don't bold Abril Fatface, Anton or the script.",
+      "Don't use the script for information or for more than a few words."
+    ]
+  }
+}

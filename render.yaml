@@ -1,0 +1,50 @@
+# Render Blueprint — free deployment of the whole site (one Node process).
+# Render → New → Blueprint → pick this repository. Values marked `sync: false`
+# are asked for once in the Render dashboard; they are never stored in git.
+# Full walkthrough: docs/development/05-environment-and-deployment.md
+services:
+  - type: web
+    name: the-music-of-heart
+    runtime: node
+    plan: free
+    region: singapore
+    branch: main
+    # Render sets NODE_ENV=production, which makes a plain install skip the build tools (Vite).
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      # The development-only local MongoDB is not needed on the server; skip its ~100 MB download.
+      - key: MONGOMS_DISABLE_POSTINSTALL
+        value: "1"
+      - key: JWT_SECRET
+        generateValue: true
+      # e.g. https://the-music-of-heart.onrender.com, later the real domain
+      - key: SITE_URL
+        sync: false
+      # MongoDB Atlas connection string
+      - key: MONGODB_URI
+        sync: false
+      # Photos go to Cloudflare R2: Render's free disk is wiped on every deploy.
+      - key: STORAGE_DRIVER
+        value: s3
+      - key: S3_REGION
+        value: auto
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_ENDPOINT
+        sync: false
+      - key: S3_ACCESS_KEY_ID
+        sync: false
+      - key: S3_SECRET_ACCESS_KEY
+        sync: false
+      # The bucket's public URL, e.g. https://pub-xxxx.r2.dev
+      - key: MEDIA_BASE_URL
+        sync: false

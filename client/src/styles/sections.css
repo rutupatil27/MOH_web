@@ -1,0 +1,142 @@
+/*
+ * Section-level devices from the owner's reference layout. Every colour resolves to tokens.
+ */
+
+@layer components {
+  /* ---------- Hero: copy on the left, the instrument photo bleeding off the right ---------- */
+
+  .hero-media {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 100%),
+      linear-gradient(to top, transparent 0%, #000 18%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 100%), linear-gradient(to top, transparent 0%, #000 18%);
+    mask-composite: intersect;
+  }
+
+  @media (max-width: 63.99rem) {
+    .hero-media {
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 20%);
+      mask-image: linear-gradient(to top, transparent 0%, #000 20%);
+    }
+  }
+
+  /* The hero collage is shown whole; only its empty black border is feathered into the page. */
+  .hero-photo {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
+      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
+      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    mask-composite: intersect;
+  }
+
+  /* A sketch on its own paper, feathered into the section's ivory so no box edge shows. */
+  .paper-blend {
+    mix-blend-mode: multiply;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    mask-composite: intersect;
+  }
+
+  /* Soft organic card behind each value, as in the About reference. */
+  .value-blob {
+    border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+    background: color-mix(in oklab, var(--color-gold) 16%, var(--color-ivory));
+  }
+
+  /* ---------- Course cards: arch-topped photos ---------- */
+
+  .arch-card {
+    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 30% 30% var(--radius-card) var(--radius-card);
+    background: var(--color-charcoal);
+    color: var(--color-warm-white);
+    isolation: isolate;
+  }
+
+  .arch-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(to top, color-mix(in oklab, var(--color-black) 88%, transparent) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .arch-card img {
+    transition: transform var(--dur-stage) var(--ease-out-expo);
+  }
+
+  .arch-card:hover img,
+  .arch-card:focus-visible img {
+    transform: scale(1.04);
+  }
+
+  .arch-arrow {
+    transition:
+      transform var(--dur-base) var(--ease-out-expo),
+      background-color var(--dur-base) var(--ease-out-quart);
+  }
+
+  .arch-card:hover .arch-arrow,
+  .arch-card:focus-visible .arch-arrow {
+    transform: translateX(3px);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .card-scroller {
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+  }
+
+  .card-scroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-scroller > * {
+    scroll-snap-align: start;
+  }
+
+  /* ---------- Why choose: gold icon rings ---------- */
+
+  .icon-ring {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--surface-accent);
+    border-radius: var(--radius-full);
+    color: var(--surface-accent);
+  }
+
+  /* ---------- About: a photo pinned like a print, with a paper note ---------- */
+
+  .print-frame {
+    padding: 0.75rem;
+    background: var(--color-paper);
+    box-shadow: 0 24px 48px -28px color-mix(in oklab, var(--color-ink) 55%, transparent);
+    transform: rotate(-2.5deg);
+  }
+
+  .paper-note {
+    background: var(--color-paper);
+    box-shadow: 0 16px 32px -20px color-mix(in oklab, var(--color-ink) 50%, transparent);
+  }
+
+  /* Handwritten words laid over a photograph stay readable whatever the photo does underneath. */
+  .photo-caption {
+    text-shadow:
+      0 1px 2px color-mix(in oklab, var(--color-black) 70%, transparent),
+      0 2px 18px color-mix(in oklab, var(--color-black) 55%, transparent);
+  }
+
+  /* ---------- Small decorative gold strokes ---------- */
+
+  .squiggle {
+    color: var(--surface-accent);
+  }
+}

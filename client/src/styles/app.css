@@ -1,0 +1,338 @@
+@import "tailwindcss";
+@import "@fontsource/abril-fatface/latin-400.css";
+@import "@fontsource-variable/jost/wght.css";
+@import "@fontsource/mrs-saint-delafield/latin-400.css";
+@import "./tokens.css";
+@import "./sections.css";
+
+@custom-variant pointer-fine (@media (hover: hover) and (pointer: fine));
+
+/* ---------------------------------------------------------------- base */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    scrollbar-color: var(--color-graphite) var(--color-black);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: 400;
+    background: var(--color-black);
+    color: var(--color-warm-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    caret-color: var(--surface-accent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+    letter-spacing: -0.005em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  [data-surface="light"] ::selection,
+  [data-surface="paper"] ::selection {
+    background: var(--color-ink);
+    color: var(--color-gold-soft);
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--surface-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------- components */
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: var(--container-site);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    padding-block: var(--space-section);
+  }
+
+  .label {
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: var(--text-label--letter-spacing);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .prose-body {
+    max-width: 62ch;
+  }
+
+  .prose-body > * + * {
+    margin-top: 1.1em;
+  }
+
+  /* Buttons: one pill shape everywhere. Colour comes from the surface. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65em;
+    min-height: 3.25rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color var(--dur-base) var(--ease-out-quart),
+      color var(--dur-base) var(--ease-out-quart),
+      border-color var(--dur-base) var(--ease-out-quart),
+      box-shadow var(--dur-slow) var(--ease-out-expo);
+  }
+
+  .btn-primary {
+    background: var(--surface-btn);
+    color: var(--surface-btn-fg);
+  }
+
+  .btn-primary:hover {
+    background: var(--surface-btn-hover);
+  }
+
+  .btn-secondary {
+    border-color: var(--surface-line-strong);
+    color: var(--surface-fg);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--surface-accent);
+    color: var(--surface-accent);
+  }
+
+  .btn[disabled],
+  .btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .btn .btn-arrow {
+    transition: transform var(--dur-base) var(--ease-out-expo);
+  }
+
+  .btn:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  .link-accent {
+    color: var(--surface-accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+    transition: text-decoration-color var(--dur-base) var(--ease-out-quart);
+  }
+
+  .link-accent:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Small tracked label above a section heading — part of the owner's reference layout. */
+  .kicker {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--surface-muted);
+  }
+
+  .script {
+    font-family: var(--font-script);
+    font-size: var(--text-script);
+    line-height: var(--text-script--line-height);
+    font-weight: 400;
+    color: var(--surface-accent);
+  }
+
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--surface-line);
+  }
+
+  /* Form fields */
+  .field-label {
+    display: block;
+    font-size: var(--text-small);
+    font-weight: 500;
+    margin-bottom: 0.45rem;
+  }
+
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 0.95rem;
+    border: 1px solid var(--surface-line-strong);
+    border-radius: var(--radius-xs);
+    background: color-mix(in oklab, var(--surface-bg) 88%, var(--surface-fg) 4%);
+    color: var(--surface-fg);
+    transition:
+      border-color var(--dur-fast) var(--ease-out-quart),
+      box-shadow var(--dur-fast) var(--ease-out-quart);
+  }
+
+  .field::placeholder {
+    color: var(--surface-muted);
+    opacity: 1;
+  }
+
+  .field:hover {
+    border-color: color-mix(in oklab, var(--surface-fg) 55%, transparent);
+  }
+
+  .field:focus-visible {
+    outline: none;
+    border-color: var(--surface-accent);
+    box-shadow: 0 0 0 1px var(--surface-accent);
+  }
+
+  .field[aria-invalid="true"] {
+    border-color: var(--surface-error);
+  }
+
+  select.field {
+    appearance: none;
+    padding-right: 2.75rem;
+    background-image:
+      linear-gradient(45deg, transparent 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position:
+      calc(100% - 1.35rem) 50%,
+      calc(100% - 1rem) 50%;
+    background-size: 0.35rem 0.35rem;
+    background-repeat: no-repeat;
+  }
+
+  select.field option {
+    background: var(--surface-bg);
+    color: var(--surface-fg);
+  }
+
+  textarea.field {
+    min-height: 7.5rem;
+    resize: vertical;
+  }
+
+  .field-error {
+    margin-top: 0.4rem;
+    font-size: var(--text-small);
+    color: var(--surface-error);
+  }
+
+  .choice {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+
+  .choice input {
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: var(--surface-accent);
+  }
+
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: var(--z-skip);
+    padding: 0.75rem 1rem;
+    background: var(--color-gold);
+    color: var(--color-black);
+    font-weight: 500;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus-visible {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------- utilities */
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility text-wrap-balance {
+  text-wrap: balance;
+}

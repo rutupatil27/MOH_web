@@ -1,0 +1,25 @@
+{
+  "hook": {
+    "enabled": true,
+    "limits": {
+      "maxFindings": 5,
+      "maxChars": 8000
+    }
+  },
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "client/src/pages/Course.jsx",
+          "client/src/styles/stage.css"
+        ],
+        "createdAt": "2026-10-21T10:52:57.722Z",
+        "reason": "Agent: the stage spotlight is the brief's signature mechanism (direction contract: gold is light — spotlight pools); toned to a 7% air / 22% floor pool behind the instrument"
+      }
+    ]
+  }
+}
