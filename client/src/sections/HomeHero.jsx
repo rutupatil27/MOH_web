@@ -16,12 +16,12 @@ export function HomeHero() {
   return (
     <section data-surface="dark" className="relative isolate overflow-hidden" aria-labelledby="hero-title">
       {/* Full-height image on the right, feathered into the black behind the copy — the same treatment as the About hero. */}
-      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[62%]">
+      <div className="absolute inset-y-0 right-0 -z-10 w-full lg:inset-y-[7%] lg:w-[56%]">
         <SiteImage
           name={HERO_IMAGE}
           alt={heroAlt}
           priority
-          sizes="(min-width: 1024px) 62vw, 100vw"
+          sizes="(min-width: 1024px) 56vw, 100vw"
           className="hero-media h-full w-full"
           imgClassName="object-[50%_50%]"
           aspectRatio="auto"
